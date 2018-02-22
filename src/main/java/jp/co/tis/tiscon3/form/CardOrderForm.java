@@ -34,7 +34,7 @@ public class CardOrderForm extends FormBase {
 
     @NotBlank
     @Size(max = 8)
-    @Pattern(regexp = "^[0-9]{3}-[0-9]{4}$")
+    @Pattern(regexp = "^[0-9]{3}[0-9]{4}$")
     private String zipCode;
 
     @NotBlank
@@ -81,7 +81,7 @@ public class CardOrderForm extends FormBase {
     private String employerName;
 
     @Size(max = 8)
-    @Pattern(regexp = "^([0-9]{3}-[0-9]{4})?$")
+    @Pattern(regexp = "^([0-9]{3}[0-9]{4})?$")
     private String employerZipCode;
 
     @Size(max = 255)
