@@ -7,6 +7,8 @@
     <title>新規作成</title>
 
     <script src="/assets/js/metrixir.client.js"></script>
+    <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+    <script src="js/ajaxzip3.js" charset="UTF-8"></script>
 </head>
 <body>
 <div class="full height image" layout:fragment="content">
@@ -27,15 +29,17 @@
                             <div class="ui horizontal divider">ご本人について</div>
 
                             <div class="field" th:classappend="${form.hasErrors('kanjiName')} ? 'error'">
-                                <label>お名前（漢字）</label>
+                                <label>お名前（漢字）</label>例：山田花子
                                 <input type="text" name="kanjiName" th:value="${form.kanjiName}"/>
+                                <!-- 名<input type="text" style="width: 180px" name="kanjiName" th:value="${form.kanjiName}"/> -->
                             </div>
+
                             <div class="field" th:classappend="${form.hasErrors('kanaName')} ? 'error'">
-                                <label>お名前（カナ）</label>
+                                <label>お名前（カナ）</label>例：ヤマダハナコ
                                 <input type="text" name="kanaName" th:value="${form.kanaName}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('alphabetName')} ? 'error'">
-                                <label>お名前（ローマ字）</label>
+                                <label>お名前（ローマ字）</label>例：YamadaHanako
                                 <input type="text" name="alphabetName" th:value="${form.alphabetName}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('gender')} ? 'error'">
@@ -44,27 +48,27 @@
                                 <input type="radio" name="gender" value="female" th:checked="${form.gender}=='female'"/>女性
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('dateOfBirth')} ? 'error'">
-                                <label>生年月日</label>
+                                <label>生年月日</label>例：1990/3/27
                                 <input type="text" name="dateOfBirth" th:value="${form.dateOfBirth}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('zipCode')} ? 'error'">
-                                <label>郵便番号</label>
-                                <input type="text" class="zipcode" name="zipCode" th:value="${form.zipCode}"/>
+                                <label>郵便番号</label>例：1234567
+                                <input type="text" class="zipcode" name="zipCode" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');" th:value="${form.zipCode}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('address')} ? 'error'">
                                 <label>ご住所</label>
-                                <input type="text" name="address" th:value="${form.address}"/>
+                                <input type="text" name="addr11" th:value="${form.address}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('homePhoneNumber')} ? 'error'">
-                                <label>自宅電話番号</label>
+                                <label>自宅電話番号</label>例：03-1234-5678
                                 <input type="text" name="homePhoneNumber" th:value="${form.homePhoneNumber}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('mobilePhoneNumber')} ? 'error'">
-                                <label>携帯電話番号</label>
+                                <label>携帯電話番号</label>例：090-1234-5678
                                 <input type="text" name="mobilePhoneNumber" th:value="${form.mobilePhoneNumber}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('emailAddress')} ? 'error'">
-                                <label>メールアドレス</label>
+                                <label>メールアドレス</label>例：sample@gmail.com
                                 <input type="text" name="emailAddress" th:value="${form.emailAddress}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('spouse')} ? 'error'">
