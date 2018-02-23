@@ -36,11 +36,11 @@
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('employerZipCode')} ? 'error'">
                                 <label>お勤め先郵便番号</label>例：1234567
-                                <input type="text" name="employerZipCode" onKeyUp="AjaxZip3.zip2addr(this,'','addr1','addr1');" th:value="${form.employerZipCode}"/>
+                                <input type="text" name="employerZipCode" onKeyUp="AjaxZip3.zip2addr(this,'','employerAddress','employerAddress');" th:value="${form.employerZipCode}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('employerAddress')} ? 'error'">
                                 <label>お勤め先住所</label>
-                                <input type="text" name="addr1" th:value="${form.employerAddress}"/>
+                                <input type="text" name="employerAddress" th:value="${form.employerAddress}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('employerPhoneNumber')} ? 'error'">
                                 <label>お勤め先電話番号</label>例：03-1234-5678
@@ -93,23 +93,17 @@
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('employeeLength')} ? 'error'">
                                 <label>勤続年数</label>
-                                <input type="text" class="number" name="employeeLength" th:value="${form.employeeLength}"/><span class="unit">年</span >
-                                <form>
-                                    <p>勤務年数</p>
-                                    <select  type="text" class="number" name="employeeLength" th:value="${form.employeeLength}"/>>
-                                        <option value="1"></option>
-                                    <option value="1"></option>
-                                    <option value="2"></option>
-                                    <option value="3"></option>
-                                    <option value="4"></option>
-                                    <option value="5"></option>
-                                    <option value="6"></option>
-                                    <option value="7"></option>
-                                    <option value="8"></option>
-                                    <option value="9"></option>
-                                    <option value="10"></option>
-                                    </select></form>
-                                <span class="unit">年</span >
+                                <!--<input type="text" class="number" name="employeeLength" th:value="${form.employeeLength}"/>-->
+
+                                    <select  type="text" class="number" name="employeeLength" th:value="${form.employeeLength}"/>
+                                <script>
+                                var i;
+
+                                for(i=0; i<=80; i++){
+                                document.write('<option value="'+i+'">'+i+'</option>');
+                                }
+
+                                </script></select><span class="unit">年</span >
                             </div>
 
                             <!--/*"ご本人"の入力値を引き回すための隠し項目*/-->
